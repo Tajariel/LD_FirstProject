@@ -98,9 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeBetweenScenes: 1
   fadeTriggerName: Fade
-  fader: {fileID: 95448607970917242}
+  animator: {fileID: 95448607970917242}
   fadeImage: {fileID: 114826794570938180}
-  isLoadingScene: 0
 --- !u!1 &1499455472718524
 GameObject:
   m_ObjectHideFlags: 0

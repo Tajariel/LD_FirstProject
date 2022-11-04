@@ -16,6 +16,7 @@ public static class UIHelper
 	public static GUIStyle mainStyle;
 	public static GUIStyle subStyle1;
 	public static GUIStyle subStyle2;
+	public static GUIStyle subStyle3;
 	public static GUIStyle buttonStyle;
 	public static GUIStyle redButtonStyle;
 	public static GUIStyle greenButtonStyle;
@@ -38,9 +39,20 @@ public static class UIHelper
 
 	public static void InitializeStyles ()
 	{
-		//GUI.skin = Resources.Load<GUISkin>("GameKit/UI/GameKitSkin");
+		 GUISkin gameKitSkin = Resources.Load<GUISkin>("GameKit/UI/GameKitSkinB");
 
-		 mainStyle = new GUIStyle("box");
+		 mainStyle = gameKitSkin.GetStyle("MainStyle");
+		 subStyle1 = gameKitSkin.GetStyle("SubStyle1");
+		 subStyle2 = gameKitSkin.GetStyle("SubStyle2");
+		 subStyle3 = gameKitSkin.GetStyle("SubStyle3");
+		 buttonStyle = gameKitSkin.GetStyle("ButtonStyle");
+		 redButtonStyle = gameKitSkin.GetStyle("RedButton");
+		 greenButtonStyle = gameKitSkin.GetStyle("GreenButton");
+		 warningStyle = gameKitSkin.GetStyle("WarningStyle");
+		 headerStyle = gameKitSkin.GetStyle("HeaderStyle");
+		 
+
+		 /*mainStyle = new GUIStyle("box");
 		 mainStyle.normal.background = MakeTex(1, 1, new Color(0.3f, 0.3f, 0.3f, 1f));
 		 mainStyle.normal.textColor = Color.black;
 		 
@@ -80,7 +92,7 @@ public static class UIHelper
 		 headerStyle.normal.background = MakeTex(1, 1, new Color(0.35f, 0.35f, 0.35f, 1f));
 		 headerStyle.normal.textColor = Color.black;
 		 headerStyle.alignment = TextAnchor.MiddleCenter;
-		 headerStyle.fontStyle = FontStyle.Bold;
+		 headerStyle.fontStyle = FontStyle.Bold;*/
 	}
 	
 	public static void PreShotDirty(string undoName, Object target)
