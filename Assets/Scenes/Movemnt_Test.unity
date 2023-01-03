@@ -208,7 +208,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 1
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
@@ -239,12 +239,12 @@ MonoBehaviour:
   zSpeed: 5
   lookAtDirection: 1
   isMovementLocal: 0
-  useWallAvoidance: 1
+  useWallAvoidance: 0
   wallAvoidanceSize: {x: 0.3, y: 0.9, z: 0.05}
   wallAvoidanceOffset: {x: 0, y: 1, z: 0.5}
   wallAvoidanceLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 768
   animator: {fileID: 0}
   movementParticleSystem: {fileID: 0}
   minVelocityToToggle: 0.2
@@ -304,7 +304,7 @@ MonoBehaviour:
     m_Bits: 128
   jumpEndYVelocity: 1
   fallGravityMultiplier: 3
-  lowJumpGravityMultiplier: 3
+  lowJumpGravityMultiplier: 2
   jumpAmount: 1
   airJumpForce: {x: 0, y: 7, z: 0}
   resetVelocityOnAirJump: 0
@@ -336,26 +336,147 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallJumpInputName: Jump
-  wallJumpForce: {x: 0, y: 250, z: -350}
+  wallJumpForce: {x: 0, y: 10, z: -10}
   wallJumpLayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 768
   invertLookDirectionOnWallJump: 1
-  gravityDampenWhileOnWall: 10
+  gravityDampenWhileOnWall: 2
   preventMovingAfterWallJump: 1
-  movePreventionDuration: 0.5
+  movePreventionDuration: 0.25
   mover: {fileID: 207643644}
   resetJumpCountOnWallJump: 0
   jumper: {fileID: 0}
-  collisionCheckDistance: 0.6
+  halfExtents: {x: 0.3, y: 0.9, z: 0.1}
   minimalHeightAllowedToWallJump: 1.5
-  collisionOffset: {x: 0, y: 0.5, z: 0}
+  collisionOffset: {x: 0, y: 1, z: 0.5}
   jumpFX: {fileID: 0}
+  jumpFXSpawnPoint: {fileID: 0}
   fxOffset: {x: 0, y: 0, z: 0}
   timeBeforeDestroyFX: 3
   animator: {fileID: 0}
   wallJumpTriggerName: wallJump
   inputChoiceIndex: 5
+--- !u!114 &207643648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207643641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7161034128e87f45b2b5b64fdb70f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionInputType: 0
+  horizontalAxis: 0
+  horizontalAxisName: Horizontal
+  verticalAxis: 1
+  verticalAxisName: Vertical
+  impulseInputName: Fire1
+  depthAxis: 2
+  resetVelocityOnImpulse: 1
+  impulseForce: 15
+  useCooldown: 0
+  cooldown: 5
+  minimalHeightToImpulse: 0
+  heightAxis: 1
+  groundDetectionLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  collisionOffset: {x: 0, y: 0.1, z: 0}
+  requireResources: 0
+  resourceManager: {fileID: 0}
+  resourceIndex: 
+  resourceCostOnUse: 1
+  preventMovingAfterImpulse: 1
+  mover: {fileID: 207643644}
+  movePreventionDuration: 0.75
+  fXFeedbackType: 2
+  impulseParticleSystem: {fileID: 0}
+  spawnedFX: {fileID: 0}
+  fxOffset: {x: 0, y: 0, z: 0}
+  timeBeforeDestroyFX: 3
+  animator: {fileID: 0}
+  dashTriggerName: dash
+  displayDebugInfo: 0
+  impulseIndex: 2
+  horizontalIndex: 0
+  verticalIndex: 1
+--- !u!114 &207643649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207643641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57626638bdfcfa8498c292cf0bb4a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputName: Fire1
+  disableInstead: 1
+  displayDebugInfo: 0
+  gameObjectsToEnable:
+  - {fileID: 2102407691}
+  revertOn: 2
+  revertAfterCooldown: 0.75
+  inputChoiceIndex: 0
+--- !u!114 &207643650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207643641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de70fe75f3b055242901bad5c505ed0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseGravityForce: {x: 0, y: -10, z: 0}
+  secondaryGravityForce: {x: 0, y: 9.81, z: 0}
+  maxVelocity: 100
+  invertOnInput: 0
+  inputName: Horizontal
+  instantGravityChangeOnInput: 0
+  invertJumpingDirection: 0
+  onlyWhenGrounded: 0
+  collisionCheckDistance: 0.65
+  invertAnimationType: 0
+  transformToInvert: {fileID: 0}
+  invertedRotation: {x: -180, y: 0, z: 0}
+  normalRotation: {x: 0, y: 0, z: 0}
+  gravityChangeBoolName: inverted
+  animator: {fileID: 0}
+  currentGravityForce: {x: 0, y: 0, z: 0}
+  showForces: 1
+  showGravity: 1
+  showGroundCheck: 1
+  showAnimation: 1
+  inputChoiceIndex: 0
+--- !u!114 &207643651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207643641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57856671215b46c48bf8df99a5653656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputName: Fire1
+  disableInstead: 1
+  components:
+  - {fileID: 207643650}
+  revertOn: 2
+  revertAfterCooldown: 0.25
+  displayDebugInfo: 0
+  inputChoiceIndex: 0
 --- !u!1 &383422072
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +840,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-82932
+  m_Name: pb_Mesh51398
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1347,7 +1468,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-54288
+  m_Name: pb_Mesh51382
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1519,7 +1640,7 @@ GameObject:
   - component: {fileID: 1949290898}
   - component: {fileID: 1949290897}
   - component: {fileID: 1949290896}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1889,7 +2010,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-78712
+  m_Name: pb_Mesh51418
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2060,28 +2181,14 @@ GameObject:
   - component: {fileID: 2102407695}
   - component: {fileID: 2102407694}
   - component: {fileID: 2102407693}
-  - component: {fileID: 2102407692}
-  m_Layer: 7
+  - component: {fileID: 2102407698}
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &2102407692
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102407691}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2096725167}
 --- !u!33 &2102407693
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -2504,10 +2611,23 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102407691}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: 3.580679, y: -4.2855835, z: -6.6407757}
+  m_LocalPosition: {x: 4.580679, y: -4.2855835, z: -6.6407757}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2025214181}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2102407698
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102407691}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 1, z: 1}
+  m_Center: {x: -3, y: -0.5, z: 0.5}
