@@ -583,7 +583,9 @@ MonoBehaviour:
   inputName: Fire1
   disableInstead: 1
   components:
-  - {fileID: 0}
+  - {fileID: 5552804510455864957}
+  - {fileID: 4685400962443337564}
+  - {fileID: 8481275899299895792}
   revertOn: 2
   revertAfterCooldown: 0.25
   displayDebugInfo: 0
