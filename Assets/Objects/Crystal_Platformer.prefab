@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2622589303413181494}
   - component: {fileID: 1789240180964817464}
   - component: {fileID: 4595948340103175842}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Crystal_Platformer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

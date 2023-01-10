@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3638236486099721975}
   - component: {fileID: 419476173963776338}
   - component: {fileID: 2465351439514936728}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube_Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
