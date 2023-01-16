@@ -12,12 +12,12 @@ TagManager:
   - Water
   - UI
   - Player
-  - Collider
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Floor
+  - Wall
+  - Phantom
+  - Collectible
+  - Void
+  - Death
   - 
   - 
   - 
